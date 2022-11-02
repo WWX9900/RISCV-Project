@@ -1,3 +1,4 @@
+# Authors: Wenxin Wu, Tianheng Xiang
 import os
 import argparse
 
@@ -7,7 +8,7 @@ class InsMem(object):
     def __init__(self, name, ioDir):
         self.id = name
         
-        with open(ioDir + "\\imem.txt") as im:
+        with open(ioDir + "/imem.txt") as im:
             self.IMem = [data.replace("\n", "") for data in im.readlines()]
 
     def readInstr(self, ReadAddress):
@@ -19,7 +20,7 @@ class DataMem(object):
     def __init__(self, name, ioDir):
         self.id = name
         self.ioDir = ioDir
-        with open(ioDir + "\\dmem.txt") as dm:
+        with open(ioDir + "/dmem.txt") as dm:
             self.DMem = [data.replace("\n", "") for data in dm.readlines()]
 
     def readInstr(self, ReadAddress):
@@ -32,7 +33,7 @@ class DataMem(object):
         pass
                      
     def outputDataMem(self):
-        resPath = self.ioDir + "\\" + self.id + "_DMEMResult.txt"
+        resPath = self.ioDir + "/" + self.id + "_DMEMResult.txt"
         with open(resPath, "w") as rp:
             rp.writelines([str(data) + "\n" for data in self.DMem])
 
@@ -80,8 +81,8 @@ class Core(object):
 
 class SingleStageCore(Core):
     def __init__(self, ioDir, imem, dmem):
-        super(SingleStageCore, self).__init__(ioDir + "\\SS_", imem, dmem)
-        self.opFilePath = ioDir + "\\StateResult_SS.txt"
+        super(SingleStageCore, self).__init__(ioDir + "/SS_", imem, dmem)
+        self.opFilePath = ioDir + "/StateResult_SS.txt"
 
     def step(self):
         # Your implementation
@@ -108,8 +109,8 @@ class SingleStageCore(Core):
 
 class FiveStageCore(Core):
     def __init__(self, ioDir, imem, dmem):
-        super(FiveStageCore, self).__init__(ioDir + "\\FS_", imem, dmem)
-        self.opFilePath = ioDir + "\\StateResult_FS.txt"
+        super(FiveStageCore, self).__init__(ioDir + "/FS_", imem, dmem)
+        self.opFilePath = ioDir + "/StateResult_FS.txt"
 
     def step(self):
         # Your implementation
