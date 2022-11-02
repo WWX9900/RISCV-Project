@@ -1,0 +1,7 @@
+.gitignore
+FS_DMEMResult.txt
+FS_RFResult.txt
+SS_DMEMResult.txt
+SS_RFResult.txt
+StateResult_FS.txt
+StateResult_SS.txt
